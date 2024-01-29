@@ -4,7 +4,11 @@ import { pipeline } from 'stream/promises';
 const transform = async () => {
   const reverse = new Transform({
     transform(chunk, _encoding, callback) {
-      const reversedString = `${String(chunk).split('').reverse().join('')}\n`;
+      const reversedString = `${String(chunk)
+        .trim()
+        .split('')
+        .reverse()
+        .join('')}\n`;
       callback(null, reversedString);
     },
   });
