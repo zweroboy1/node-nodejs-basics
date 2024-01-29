@@ -4,7 +4,7 @@ import { createWriteStream } from 'fs';
 import { pipeline } from 'stream/promises';
 
 const FOLDER_NAME = 'files';
-const FILE_NAME = 'fileToWrite.txt_';
+const FILE_NAME = 'fileToWrite.txt';
 const STREAM_WRITE_ERROR_TEXT = 'Unable to write the stream';
 
 const write = async () => {
