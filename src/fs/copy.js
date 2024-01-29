@@ -2,15 +2,15 @@ import fs from 'fs';
 import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 
-const PROJECT_FOLDER = 'files';
-const NEW_PROJECT_FOLDER = 'files_copy';
+const FOLDER_NAME = 'files';
+const NEW_FOLDER_NAME = 'files_copy';
 const FILE_SYSTEM_ERROR_TEXT = 'FS operation failed';
 
 const copy = async () => {
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = dirname(__filename);
-  const projectFolderPath = path.join(__dirname, PROJECT_FOLDER);
-  const newProjectFolderPath = path.join(__dirname, NEW_PROJECT_FOLDER);
+  const projectFolderPath = path.join(__dirname, FOLDER_NAME);
+  const newProjectFolderPath = path.join(__dirname, NEW_FOLDER_NAME);
 
   try {
     await fs.promises.access(newProjectFolderPath, fs.constants.R_OK);
