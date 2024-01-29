@@ -1,5 +1,6 @@
 import { Transform } from 'stream';
 import { pipeline } from 'stream/promises';
+import { EOL } from 'os';
 
 const transform = async () => {
   const reverse = new Transform({
@@ -8,7 +9,7 @@ const transform = async () => {
         .trim()
         .split('')
         .reverse()
-        .join('')}\n`;
+        .join('')}${EOL}`;
       callback(null, reversedString);
     },
   });
