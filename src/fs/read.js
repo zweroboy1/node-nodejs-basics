@@ -12,15 +12,13 @@ const read = async () => {
   const sourceFile = path.join(__dirname, FOLDER_NAME, FILE_NAME);
 
   try {
-    await fs.promises.access(sourceFile, fs.constants.R_OK);
-    const fileContent = await fs.promises.readFile(sourceFile, 'utf-8');
+    // await fs.promises.access(sourceFile, fs.constants.R_OK);
+    const fileContent = await fs.promises.readFile(sourceFile, {
+      encoding: 'utf8',
+    });
     console.log(fileContent);
   } catch (error) {
-    if (error.code === 'ENOENT') {
-      throw new Error(FILE_SYSTEM_ERROR_TEXT);
-    } else {
-      throw error;
-    }
+    throw new Error(FILE_SYSTEM_ERROR_TEXT);
   }
 };
 
