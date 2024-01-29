@@ -12,7 +12,6 @@ const read = async () => {
   const sourceFile = path.join(__dirname, FOLDER_NAME, FILE_NAME);
 
   try {
-    // await fs.promises.access(sourceFile, fs.constants.R_OK);
     const fileContent = await fs.promises.readFile(sourceFile, {
       encoding: 'utf8',
     });
